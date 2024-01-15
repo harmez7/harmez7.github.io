@@ -1,0 +1,196 @@
+@use "../partials/forwards" as *;
+
+$score-demo-size: 200px;
+$stroke: 375;
+$svg-size: 170px;
+
+.quiz-result-page {
+  @include flex-container;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.quiz-result-page__summery {
+  position: absolute;
+  top: calc(10vh + 5vw);
+  left: 5vw;
+  font-size: 6vw;
+  background-color: #1f1f1f36;
+  border-radius: $borderRadius;
+  padding: 0.3em;
+
+  & > span:first-child {
+    color: green;
+  }
+
+  & > span:nth-child(2) {
+    color: #c33dcf;
+  }
+
+  & > span:nth-child(3) {
+    color: #c33dcf;
+  }
+}
+
+.quiz-result-page__score {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(3, auto);
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: gray;
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    justify-self: flex;
+    color: #c33dcf;
+  }
+}
+
+.score__score-container {
+  @include flex-container(center, center, column);
+  gap: 10px;
+}
+
+.score__score-demo {
+  @include flex-container();
+  position: relative;
+  width: $score-demo-size;
+  height: $score-demo-size;
+  border-radius: 50%;
+
+  .score-demo__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: rgb(255, 219, 219);
+    border: 15px solid rgb(190, 133, 204);
+  }
+
+  .score-demo__score-bar {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    border-radius: inherit;
+    background-color: rgb(182, 91, 190);
+    outline: 1px solid black;
+    outline-offset: 0.35em;
+
+    .score-bar__svg {
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+    }
+
+    .score-bar__bar {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke-width: 10;
+      stroke-dasharray: $stroke;
+      stroke-dashoffset: $stroke;
+      stroke: hsl(0, 0%, 100%);
+      stroke-linecap: round;
+      animation: anim-precent-bar 2s ease-in-out forwards;
+    }
+  }
+
+  .score-demo__score-precentage {
+    @include flex-container();
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    font-size: 2rem;
+    border-radius: inherit;
+    background-color: #1f1f1f;
+    border: 1px solid #ffffff;
+    margin: 3em;
+  }
+}
+
+.score-bar-reaction {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.849);
+  margin-top: 0.5em;
+}
+
+.score-show-detail {
+  @include flex-container(center, center, column);
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(20px);
+
+    .score-show-detail__btn {
+      animation: none;
+    }
+
+    .score-show-detail__text {
+      opacity: 0;
+    }
+  }
+
+  &__btn {
+    font-size: 4rem;
+    cursor: pointer;
+    animation: score-detail-btn 2500ms infinite;
+  }
+
+  &__text {
+    transition: inherit;
+    color: black;
+  }
+}
+
+.hide {
+  animation: anim-hide 0.5s forwards;
+}
+
+.show {
+  animation: anim-show 0.5s forwards;
+}
+
+@keyframes anim-precent-bar {
+  to {
+    stroke-dashoffset: var(--calc);
+  }
+}
+
+@keyframes anim-hide {
+  0% {
+    opacity: 100%;
+  }
+  99% {
+    transform: translateY(20px);
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes anim-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes score-detail-btn {
+  0% {
+    transform: initial;
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: initial;
+  }
+}

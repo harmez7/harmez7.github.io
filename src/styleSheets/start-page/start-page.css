@@ -1,0 +1,112 @@
+@font-face {
+  font-family: Bungee_Spice;
+  src: url("../../assets/BungeeSpice-Regular.ttf");
+}
+.start-page {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: calc(100vw - 15%);
+  height: calc(100vh - 5%);
+  background-image: url("../../assets/SL-032722-49310-17.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-inline-start: 10vw;
+  border-radius: 7vw;
+  overflow: hidden;
+}
+
+.start-page__elements-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.start-page__title {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #492b7a;
+  text-align: center;
+  font-family: Bungee_Spice;
+  padding: 0.6em;
+  border-radius: 7vw;
+  box-shadow: 0px 0px 5px 0px #e639d7;
+}
+
+.start-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+}
+.start-btn-container:hover .beat-effect {
+  animation-name: none;
+  display: none;
+}
+.start-btn-container > .start-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 0.4em 1em;
+  border: none;
+  border-radius: 7vw;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  outline-offset: 20px;
+  outline: 1px solid transparent;
+  transition: all 0.3s;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.493);
+  cursor: pointer;
+}
+.start-btn-container > .start-btn:hover {
+  outline: 1px solid #e639d7;
+  outline-offset: 5px;
+  color: black;
+  box-shadow: none;
+}
+.start-btn-container > .start-btn::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #e639d8;
+  border-radius: 7vw;
+  transition: inherit;
+  z-index: -1;
+}
+.start-btn-container > .start-btn:hover::after {
+  opacity: 0%;
+  transform: scale(0.5);
+}
+.start-btn-container > .beat-effect {
+  content: "";
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background-color: rgba(255, 0, 0, 0.4784313725);
+  border: 5px solid #f33a6a;
+  border-radius: 50%;
+  animation-name: start_btn_beat;
+  animation-duration: 1.8s;
+  animation-iteration-count: infinite;
+  animation-delay: 0.3s;
+  pointer-events: none;
+  visibility: hidden;
+}
+@keyframes start_btn_beat {
+  to {
+    visibility: visible;
+    width: 250px;
+    height: 250px;
+    opacity: 0%;
+  }
+}/*# sourceMappingURL=start-page.css.map */

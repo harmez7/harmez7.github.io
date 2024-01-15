@@ -1,0 +1,39 @@
+@use "../partials/forwards" as *;
+
+@font-face {
+  font-family: Bungee_Spice;
+  src: url("../../assets/BungeeSpice-Regular.ttf");
+}
+
+.start-page {
+  @include flex-container(flex-start);
+  width: calc(100vw - 15%);
+  height: calc(100vh - 5%);
+  background-image: url("../../assets/SL-032722-49310-17.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-inline-start: 10vw;
+  border-radius: 7vw;
+  overflow: hidden;
+}
+
+.start-page__elements-wrapper {
+  @include flex-container(space-around, center, column);
+  height: 100%;
+}
+
+.start-page__title {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #492b7a;
+  text-align: center;
+  font-family: Bungee_Spice;
+  padding: 0.6em;
+  border-radius: $borderRadius;
+  box-shadow: 0px 0px 5px 0px #e639d7;
+}
+
+.start-btn-container {
+  @include theme-btn;
+}

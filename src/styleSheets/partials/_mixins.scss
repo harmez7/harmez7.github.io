@@ -1,0 +1,89 @@
+@use "./variables" as *;
+
+@mixin flex-container($jc: center, $ai: center, $fd: row) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fd;
+}
+
+@mixin red {
+  color: red;
+}
+
+@mixin theme-btn {
+  @include flex-container();
+  position: relative;
+
+  &:hover .beat-effect {
+    animation-name: none;
+    display: none;
+  }
+
+  & > .start-btn {
+    @include flex-container;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 0.4em 1em;
+    border: none;
+    border-radius: $borderRadius;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    outline-offset: 20px;
+    outline: 1px solid transparent;
+    transition: all 0.3s;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.493);
+    cursor: pointer;
+
+    &:hover {
+      outline: 1px solid #e639d7;
+      outline-offset: 5px;
+      color: black;
+      box-shadow: none;
+    }
+
+    //Drawing the BG for the BTN
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: #e639d8;
+      border-radius: $borderRadius;
+      transition: inherit;
+      z-index: -1;
+    }
+
+    &:hover::after {
+      opacity: 0%;
+      transform: scale(0.5);
+    }
+  }
+
+  // Draw the beat
+  & > .beat-effect {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-color: #ff00007a;
+    border: 5px solid #f33a6a;
+    border-radius: 50%;
+    animation-name: start_btn_beat;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.3s;
+    pointer-events: none;
+    visibility: hidden;
+
+    @keyframes start_btn_beat {
+      to {
+        visibility: visible;
+        width: 250px;
+        height: 250px;
+        opacity: 0%;
+      }
+    }
+  }
+}

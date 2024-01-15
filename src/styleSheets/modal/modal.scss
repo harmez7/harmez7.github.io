@@ -1,0 +1,41 @@
+@use "../partials/forwards" as *;
+
+.modal {
+  @include flex-container(space-around, center, column);
+  width: clamp(400px, 50%, 50%);
+  height: 50%;
+  position: absolute;
+  border-radius: $borderRadius;
+  background-color: rgba(179, 86, 74, 0.199);
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.658);
+  overflow: hidden;
+}
+
+.modal__description {
+  padding: 0.5em 1.5em;
+  color: #fff;
+}
+
+.modal__btns {
+  @include flex-container;
+  gap: 30%;
+  width: 100%;
+  button:first-child {
+    padding: 0.5em 2em;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: $borderRadius;
+    background-color: #300b52;
+
+    &:hover {
+      background-color: lighten($color: #300b52, $amount: 10);
+      transition: background-color 0.2s;
+    }
+  }
+
+  button:nth-child(2) {
+    @extend button, :first-child;
+    color: gold;
+  }
+}

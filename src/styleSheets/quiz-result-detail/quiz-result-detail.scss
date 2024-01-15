@@ -1,0 +1,105 @@
+@use "../../styleSheets/partials/forwards" as *;
+
+.quiz-result-page__detail {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: all 0.5s;
+  overflow: auto;
+  background-color: pink;
+  border-top-left-radius: $borderRadius;
+  border-bottom-left-radius: $borderRadius;
+}
+
+.table {
+  width: 90%;
+  border-collapse: collapse;
+  margin: auto;
+
+  &__head {
+    border-bottom: 1px solid gray;
+    color: black;
+
+    .head__element {
+      padding: 1em;
+
+      &:first-child {
+        border-top-left-radius: $borderRadius;
+      }
+      &:last-child {
+        border-top-right-radius: $borderRadius;
+      }
+    }
+  }
+
+  &__row {
+    &:not(:first-child) {
+      border-top: 1px solid gray;
+    }
+
+    .table__element {
+      padding: 0.5em 1em;
+      text-align: center;
+      color: black;
+      &.incorrect {
+        background-color: rgb(218, 115, 115, 0.7);
+      }
+
+      &.correct {
+        background-color: rgb(121, 201, 125, 0.7);
+      }
+    }
+  }
+}
+
+.score-hide-detail {
+  @include flex-container(center, center, column);
+  position: fixed;
+  top: 2vw;
+  left: 2vw;
+  transition: translate 0.3s;
+  rotate: 180deg;
+
+  &:hover {
+    translate: 0 -5px;
+    .score-hide-detail__btn {
+      animation: none;
+    }
+  }
+
+  &__btn {
+    font-size: 4rem;
+    cursor: pointer;
+    animation: score-detail-btn 2500ms infinite;
+    color: gray;
+  }
+}
+
+// .show {
+//   animation-name: anim-show;
+//   animation-duration: 0.5s;
+//   animation-delay: 0.3s;
+//   animation-fill-mode: forwards;
+// }
+
+@keyframes anim-show {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes score-detail-btn {
+  0% {
+    transform: initial;
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: initial;
+  }
+}

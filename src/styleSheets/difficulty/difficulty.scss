@@ -1,0 +1,31 @@
+@use "../partials/forwards" as *;
+
+.difficulties {
+  @include flex-container(_, _, column);
+  row-gap: 5vh;
+}
+
+.difficulties__label {
+  cursor: inherit;
+  user-select: none;
+}
+
+.difficulties__difficulty {
+  @include flex-container;
+  width: 40vw;
+  height: 20vh;
+  border-radius: $borderRadius;
+  background-color: #363636a9;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #363636e3;
+  }
+}
+
+.difficulties__input {
+  display: none;
+}

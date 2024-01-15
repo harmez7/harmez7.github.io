@@ -1,0 +1,81 @@
+@use "../partials/forwards" as *;
+
+.T-NOQ-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: white;
+
+  .T-NOQ-page__title {
+    @include flex-container(center, center, column);
+    width: 100%;
+    height: 30%;
+  }
+}
+
+.T-NOQ-page__type-container {
+  @include flex-container();
+  gap: 0.5em;
+  height: 20%;
+
+  .type-container__type {
+    border: 1px solid black;
+    text-align: center;
+    padding: 0.5em 1em;
+    border-radius: $borderRadius;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+    background-color: darken($color: #e639d8, $amount: 30);
+
+    &:hover {
+      background-color: darken($color: #e639d8, $amount: 20);
+      border: 1px solid rgba(255, 255, 255, 0.521);
+    }
+
+    &.selected {
+      border: 1px solid white;
+    }
+  }
+}
+
+.T-NOQ-page__NOQ {
+  @include flex-container(center, center, column);
+  gap: 10px;
+  height: 20%;
+  width: clamp(380px, 60%, 500px);
+  position: relative;
+
+  .NOQ__wrapper {
+    @include flex-container;
+    width: 100%;
+  }
+
+  .NOQ__range {
+    width: 100%;
+  }
+
+  .NOQ__counter {
+    display: none;
+  }
+
+  .NOQ__counter.show {
+    @include flex-container;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: pink;
+    color: black;
+    left: var(--x);
+    top: 0;
+  }
+}
+
+.session-start-btn-container {
+  @include theme-btn;
+  margin-block-start: 3.5em;
+}

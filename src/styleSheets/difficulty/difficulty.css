@@ -1,0 +1,36 @@
+.difficulties {
+  display: flex;
+  justify-content: _;
+  align-items: _;
+  flex-direction: column;
+  row-gap: 5vh;
+}
+
+.difficulties__label {
+  cursor: inherit;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.difficulties__difficulty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 40vw;
+  height: 20vh;
+  border-radius: 7vw;
+  background-color: rgba(54, 54, 54, 0.662745098);
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.difficulties__difficulty:hover {
+  background-color: rgba(54, 54, 54, 0.8901960784);
+}
+
+.difficulties__input {
+  display: none;
+}/*# sourceMappingURL=difficulty.css.map */

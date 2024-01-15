@@ -1,0 +1,9 @@
+@use "../partials/forwards" as *;
+
+.quiz-session-page {
+  width: calc(100vw - 15%);
+  height: calc(100vh - 10%);
+  background-color: pink;
+  border-radius: $borderRadius;
+  position: relative;
+}
