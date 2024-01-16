@@ -19,15 +19,23 @@ const Quiz = ({ quizData, quizType }) => {
   const { question, correct_answer, incorrect_answers } =
     quizData.data.results[current]
 
+  const progressBarPrecentage = Math.ceil(((current + 1) / max) * 100)
+  const decoded_correct_answers = decode(correct_answer)
   const decodedQuestion = decode(question)
   const decoded_incorrect_answers = incorrect_answers.map((answer) =>
     decode(answer)
   )
-  const decoded_correct_answers = decode(correct_answer)
 
   return (
     <div className="quiz">
+      <div className="progress-bar">
+        <div
+          className="progress-bar__progress"
+          style={{ width: `${progressBarPrecentage}%` }}
+        ></div>
+      </div>
       <div className="question-container">{decodedQuestion}</div>
+
       {quizType === "boolean" && (
         <Choices_Boolean
           setSessionQuestionIndex={setSessionQuestionIndex}

@@ -140,6 +140,7 @@
 .score-show-detail__text {
   transition: inherit;
   color: black;
+  text-decoration: underline;
 }
 
 .hide {

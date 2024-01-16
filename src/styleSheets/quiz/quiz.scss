@@ -6,11 +6,21 @@
   height: 100%;
 }
 
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background-color: pink;
+
+  &__progress {
+    background-color: cornflowerblue;
+    height: 100%;
+  }
+}
 .question-container {
   width: 100%;
   height: 40%;
   background-color: antiquewhite;
-  border-radius: $borderRadius $borderRadius 50% 50%;
+  border-radius: 0 0 50% 50%;
   padding: 4em 2em;
   text-align: center;
   color: black;
