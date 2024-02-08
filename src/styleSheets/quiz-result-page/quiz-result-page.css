@@ -143,6 +143,19 @@
   text-decoration: underline;
 }
 
+.reset-btn {
+  cursor: pointer;
+  padding: 0.5em 2em;
+  border-radius: 7vw;
+  border: 1px solid #e639d8;
+  background-color: pink;
+  font-size: 1.2rem;
+  transition: background-color 100ms;
+}
+.reset-btn:hover {
+  background-color: #e950dc;
+}
+
 .hide {
   animation: anim-hide 0.5s forwards;
 }

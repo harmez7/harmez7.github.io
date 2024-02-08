@@ -2,6 +2,7 @@ import React, { Suspense, useRef, useState, lazy } from "react"
 import { useEffect } from "react"
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import CountUp from "react-countup"
+import { useNavigate } from "react-router-dom"
 import { BsChevronDoubleDown } from "react-icons/bs"
 const QuizResultDetail = lazy(() => import("../components/QuizResultDetail"))
 import "../styleSheets/quiz-result-page/quiz-result-page.css"
@@ -9,6 +10,7 @@ import "../styleSheets/quiz-result-page/quiz-result-page.css"
 const QuizResultPage = () => {
   const { userQuizResults } = useSelector((state) => state.quizData)
   const QUESTIONS_LENGTH = userQuizResults.length
+  const navigate = useNavigate()
   const scoreBar = useRef()
   const [isShowingDetail, setIsShowingDetail] = useState(false)
   const userCorrectAnswers = userQuizResults.filter((result) => result)
@@ -50,6 +52,10 @@ const QuizResultPage = () => {
       default:
         return "Oops something went wrong"
     }
+  }
+
+  const resetApp = () => {
+    navigate("/settings")
   }
 
   // after component mount, set the score bar accordingly
@@ -95,6 +101,9 @@ const QuizResultPage = () => {
           </div>
           <div className="score-bar-reaction">- {scoreReactionText()} -</div>
         </div>
+        <button className="reset-btn" onClick={resetApp}>
+          Start a new Quiz
+        </button>
         <div
           className="score-show-detail"
           onClick={() => setIsShowingDetail(true)}

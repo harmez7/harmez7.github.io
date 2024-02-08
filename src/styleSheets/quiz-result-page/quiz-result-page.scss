@@ -148,6 +148,20 @@ $svg-size: 170px;
   }
 }
 
+.reset-btn {
+  cursor: pointer;
+  padding: 0.5em 2em;
+  border-radius: $borderRadius;
+  border: 1px solid $theme-backgrond-color;
+  background-color: pink;
+  font-size: 1.2rem;
+  transition: background-color 100ms;
+
+  &:hover {
+    background-color: lighten($color: $theme-backgrond-color, $amount: 5);
+  }
+}
+
 .hide {
   animation: anim-hide 0.5s forwards;
 }
