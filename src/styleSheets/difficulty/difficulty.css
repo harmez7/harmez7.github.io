@@ -1,9 +1,14 @@
+.difficluty-page {
+  width: 100%;
+}
+
 .difficulties {
   display: flex;
   justify-content: _;
-  align-items: _;
+  align-items: center;
   flex-direction: column;
   row-gap: 5vh;
+  margin-top: 4em;
 }
 
 .difficulties__label {

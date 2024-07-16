@@ -7,13 +7,26 @@
   height: 100%;
 }
 
+.category-page__title {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: slateblue;
+  text-align: center;
+  > p {
+    padding: 1.5em;
+    font-size: 1.5rem;
+    color: #ffff;
+  }
+}
+
 .category-grid {
   display: grid;
   width: 100%;
   overflow: auto;
   justify-content: center;
   gap: 2vh;
-  padding: 1em;
+  padding-top: 1em;
 
   &.tile {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

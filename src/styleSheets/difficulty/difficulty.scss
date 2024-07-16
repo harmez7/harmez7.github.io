@@ -1,8 +1,15 @@
 @use "../partials/forwards" as *;
 
+.difficluty-page {
+  // @include flex-container(_, _, column);
+  // flex: 100%;
+  width: 100%;
+}
+
 .difficulties {
-  @include flex-container(_, _, column);
+  @include flex-container(_, center, column);
   row-gap: 5vh;
+  margin-top: 4em;
 }
 
 .difficulties__label {

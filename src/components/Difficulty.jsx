@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux"
 import { actions as quizSettingsActions } from "../redux/reducers/quizSettingsSlice"
+import SettingsTitle from "./SettingsTitle"
 import PropTypes from "prop-types"
 import "../styleSheets/difficulty/difficulty.css"
 
@@ -16,6 +17,7 @@ const Difficulty = ({ isDifficultyset }) => {
 
   return (
     <div className="difficluty-page">
+      <SettingsTitle title={"Choose Difficulty"} position={"fixed"} />
       <form className="difficulties">
         <div
           className="difficulties__difficulty"

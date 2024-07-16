@@ -9,7 +9,7 @@
 
 .progress-bar {
   width: 100%;
-  height: 5px;
+  height: 1em;
   background-color: pink;
 }
 .progress-bar__progress {
