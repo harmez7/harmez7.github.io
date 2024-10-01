@@ -10,6 +10,7 @@ const Difficulty = ({ isDifficultyset }) => {
     dispatch(quizSettingsActions.setDifficulty(difficulty))
   }
 
+  //after choosing a difficulty, update the store and trigger the next compoenent to load by setting the [isDiddilcultySet] to [true].
   const selectDificulty = (difficulty) => {
     updateDifficultyInStore(difficulty)
     isDifficultyset(true)

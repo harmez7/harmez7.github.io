@@ -1,3 +1,7 @@
+/* 
+the propose of this component is that, in case of an error, a modal with the respective [reason] is showen to the client. so it won't show at all if everthing go in order.  
+*/
+
 import { useNavigate } from "react-router-dom"
 import PropTypes from "prop-types"
 import "../styleSheets/modal/modal.css"

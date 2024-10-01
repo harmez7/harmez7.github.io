@@ -17,10 +17,12 @@ const CategoryPage = ({ isCategorySet }) => {
   }
 
   const selectCategory = (key) => {
+    //after clicking on a category item, update the data in store and set the [isCategorySet] to [true], which will trigger the next component to load.
     updateCategoryInStore(key)
     isCategorySet(true)
   }
 
+  //create category items in category paga.
   const categoryElements = categories.map((category) => {
     return (
       <div
@@ -33,6 +35,7 @@ const CategoryPage = ({ isCategorySet }) => {
     )
   })
 
+  //in case of a out-of-the-order component-reload, reset the data in redux store to prevent incorrect data collections.
   useEffect(() => {
     dispatch(quizDataActions.reset())
   }, [])

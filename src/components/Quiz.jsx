@@ -36,6 +36,7 @@ const Quiz = ({ quizData, quizType }) => {
       </div>
       <div className="question-container">{decodedQuestion}</div>
 
+      {/* depending on the [quizType] variable, load the corresponding component and send the data along. */}
       {quizType === "boolean" && (
         <Choices_Boolean
           setSessionQuestionIndex={setSessionQuestionIndex}

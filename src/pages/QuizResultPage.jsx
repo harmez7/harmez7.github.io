@@ -20,7 +20,7 @@ const QuizResultPage = () => {
     (userCorrectAnswers.length / userQuizResults.length) * 100
   )
 
-  //calculate the correct score bar length - 375 is stroke-dasharray/stroke-dashoffset
+  //calculate the correct score bar length; [375] is css stroke-dasharray/stroke-dashoffset
   const scoreBarLengthCalculation =
     375 - (375 * userCorrectAnswersPrecentage) / 100
 

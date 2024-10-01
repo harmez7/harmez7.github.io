@@ -10,17 +10,18 @@ const QuizType_and_NumberOfQuestions = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const updateType_and_numberOfQuestions_inStore = () => {
+  const updateType_and_numberOfQuestions_in_Store = () => {
     dispatch(quizSettingsActions.setType(typeOfQuestions))
     dispatch(quizSettingsActions.setAmount(String(numberOfQuestion)))
   }
 
+  //check if all needed data is set and thereafter, navigate to quiz-session to start the quiz.
   const select_Type_and_numberOfQuestions = () => {
     if (!typeOfQuestions) {
       alert("Please select a Question Type")
       return
     }
-    updateType_and_numberOfQuestions_inStore()
+    updateType_and_numberOfQuestions_in_Store()
     navigate("/quiz-session")
   }
 
@@ -37,7 +38,7 @@ const QuizType_and_NumberOfQuestions = () => {
     NOQ.current.style.setProperty("--x", `${x - 20}px`)
   }
 
-  // Acronym for Number of Questions
+  // NOQ = Number of Questions
   const NOQ = useRef()
   const NOQ_COUNTER = useRef()
   const NOQRangeDrag = (e) => {
@@ -49,6 +50,7 @@ const QuizType_and_NumberOfQuestions = () => {
     }
   }
 
+  //remove the pointer event so the coutner disappears on [onPointerUp].
   const removeRangeDrag = (e) => {
     const target = e.target
     target.onpointermove = null
@@ -56,7 +58,6 @@ const QuizType_and_NumberOfQuestions = () => {
   }
 
   return (
-    // Acronym for Type and Number Of Qestions
     <div className="T-NOQ-page">
       <div className="T-NOQ-page__title">
         <h2>Type & Number Of Questions</h2>
@@ -77,7 +78,7 @@ const QuizType_and_NumberOfQuestions = () => {
             typeOfQuestions === "boolean" ? "selected" : ""
           }`}
         >
-          True/False
+          True | False
         </div>
         {/* <div
           onClick={() => setTypeOfQuestions("0")}

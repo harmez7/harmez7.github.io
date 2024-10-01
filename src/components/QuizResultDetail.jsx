@@ -9,7 +9,7 @@ const QuizResultDetail = ({ isShowing, setIsShowing }) => {
 
   //create table rows
   const resultTable = questions.map((question, index) => {
-    //give the propiate className
+    //give the appropriate className
     const correctOrIncorrect = userQuizResults[index] ? "correct" : "incorrect"
     return (
       <tr className="table__row" key={index}>

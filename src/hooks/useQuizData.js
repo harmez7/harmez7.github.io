@@ -8,6 +8,7 @@ const useQuizData = ({ url, isURLValid }) => {
   return useQuery({
     queryKey: ["quiz-session-data"],
     queryFn: () => fetchSession(url),
+    //This will ensure that all required data is set before attempting an API call
     enabled: isURLValid,
     refetchOnWindowFocus: false,
   })

@@ -5,6 +5,7 @@ import useAssembleQuizSessionURL from "../hooks/useAssembleQuizSessionURL"
 import Quiz from "../components/Quiz"
 import "../styleSheets/quiz-session-page/quiz-session-page.css"
 
+//prevent the unnecessary loading of the [Modal] component because it might not needed at all.
 const Modal = lazy(() => import("../components/Modal"))
 
 const QuizSessionPage = () => {

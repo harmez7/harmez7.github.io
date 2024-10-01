@@ -7,6 +7,7 @@ const QuizSettingsPage = () => {
   const [isCategorySet, setIsCategorySet] = useState(false)
   const [isDifficultyset, setIsDifficultyset] = useState(false)
 
+  //these if-check blocks prevents the next component from loading untill the previous one is done collecting the necessarily data from the user. starting from the category component.
   if (isDifficultyset) return <QuizType_and_NumberOfQuestions />
   if (isCategorySet) return <Difficulty isDifficultyset={setIsDifficultyset} />
   return <Category isCategorySet={setIsCategorySet} />
